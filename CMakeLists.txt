@@ -340,8 +340,10 @@ include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR} dynasm src)
 
 IF(WITH_AMALG)
   add_library(libluajit STATIC src/ljamalg.c ${DEPS} )
+  add_library(lua51 SHARED src/ljamalg.c ${DEPS} )
 ELSE()
   add_library(libluajit STATIC ${SRC_LJCORE} ${DEPS} )
+  add_library(lua51 SHARED src/ljamalg.c ${DEPS} )
 ENDIF()
 
 target_link_libraries (libluajit ${LIBS} )
